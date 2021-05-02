@@ -916,6 +916,8 @@ PlatformFontPtr IGraphicsWeb::LoadPlatformFont(const char* fontID, void* pData, 
 
 #if defined IGRAPHICS_CANVAS
 #include "IGraphicsCanvas.cpp"
+#elif defined IGRAPHICS_SKIA
+#include "IGraphicsSkia.cpp"
 #elif defined IGRAPHICS_NANOVG
 #include "IGraphicsNanoVG.cpp"
 
