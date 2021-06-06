@@ -556,7 +556,8 @@ WDL_DLGRET IPlugAPPHost::MainDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPA
       }
     }
   };
-  
+
+#if defined GRAPHICS_SWITCHES
   auto CheckRendererMenu = [&](IGraphics* pGraphics) {
     auto mode = pGraphics->GetBackendMode();
     CheckMenuItem(GET_MENU(), ID_RENDERER_SOFTWARE, MF_BYCOMMAND | (mode == EBackendMode::Software ? MF_CHECKED : MF_UNCHECKED));
@@ -564,6 +565,7 @@ WDL_DLGRET IPlugAPPHost::MainDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPA
     CheckMenuItem(GET_MENU(), ID_RENDERER_METAL,    MF_BYCOMMAND | (mode == EBackendMode::Metal    ? MF_CHECKED : MF_UNCHECKED));
     CheckMenuItem(GET_MENU(), ID_RENDERER_DIRECT3D, MF_BYCOMMAND | (mode == EBackendMode::Direct3D ? MF_CHECKED : MF_UNCHECKED));
   };
+#endif
 #endif
 
 
@@ -574,7 +576,7 @@ WDL_DLGRET IPlugAPPHost::MainDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPA
   {
     case WM_INITMENUPOPUP:
     {
-#if defined _DEBUG && !defined NO_IGRAPHICS
+#if defined _DEBUG && !defined NO_IGRAPHICS && defined GRAPHICS_SWITCHES
       IfIGraphicsUIExists([&](IGraphics* pGraphics){
         CheckRendererMenu(pGraphics);
       });
@@ -697,6 +699,7 @@ WDL_DLGRET IPlugAPPHost::MainDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPA
 
           return 0;
         }
+#ifdef GRAPHICS_SWITCHES
         case ID_RENDERER_SOFTWARE:
         {
           IfIGraphicsUIExists([&](IGraphics* pGraphics) {
@@ -729,6 +732,7 @@ WDL_DLGRET IPlugAPPHost::MainDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPA
           });
           return 0;
         }
+#endif // GRAPHICS_SWITCHES
 #endif
       }
       return 0;

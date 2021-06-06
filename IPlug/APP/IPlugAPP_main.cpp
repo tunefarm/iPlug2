@@ -77,7 +77,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdPa
 
     HMENU menu = GetMenu(gHWND);
 
-#ifdef _DEBUG
+#if defined _DEBUG && defined GRAPHICS_SWITCHES
 #if defined IGRAPHICS_SKIA && defined IGRAPHICS_CPU
     EnableMenuItem(menu, ID_RENDERER_SOFTWARE, MF_BYCOMMAND | MF_ENABLED);
 #endif
