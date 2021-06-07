@@ -1270,7 +1270,7 @@ void IGraphicsSkia::ApplyShadowMask(ILayerPtr& layer, RawBitmapData& mask, const
  
   IBlend blend(EBlend::Default, shadow.mOpacity);
   pCanvas->setMatrix(m);
-  pCanvas->drawImage(image.get(), shadow.mXOffset * scale, shadow.mYOffset * scale);
+  pCanvas->drawImage(image, shadow.mXOffset * scale, shadow.mYOffset * scale);
   m = SkMatrix::Scale(scale, scale);
   pCanvas->setMatrix(m);
   pCanvas->translate(-layer->Bounds().L, -layer->Bounds().T);

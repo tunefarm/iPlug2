@@ -360,7 +360,7 @@ public:
   friend class IPlugAPIBase;
   friend class IPluginBase;
 
-private:
+protected:
   /** A list of IParam objects. This list is populated in the delegate constructor depending on the number of parameters passed as an argument to MakeConfig() in the plug-in class implementation constructor */
   WDL_PtrList<IParam> mParams;
 

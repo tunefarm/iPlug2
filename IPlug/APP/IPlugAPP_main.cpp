@@ -77,7 +77,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdPa
 
     HMENU menu = GetMenu(gHWND);
 
-#ifdef _DEBUG
+#if defined _DEBUG && defined GRAPHICS_SWITCHES
 #if defined IGRAPHICS_SKIA && defined IGRAPHICS_CPU
     EnableMenuItem(menu, ID_RENDERER_SOFTWARE, MF_BYCOMMAND | MF_ENABLED);
 #endif
@@ -262,6 +262,8 @@ INT_PTR SWELLAppMain(int msg, INT_PTR parm1, INT_PTR parm2)
       SetMenuItemModifier(menu, ID_SHOW_DRAWN, MF_BYCOMMAND, 'D', FCONTROL);
       SetMenuItemModifier(menu, ID_SHOW_BOUNDS, MF_BYCOMMAND, 'B', FCONTROL);
       SetMenuItemModifier(menu, ID_SHOW_FPS, MF_BYCOMMAND, 'F', FCONTROL);
+      
+#if GRAPHICS_SWITCHES
       EnableMenuItem(menu, ID_RENDERER_SOFTWARE, MF_BYCOMMAND | MF_GRAYED);
       EnableMenuItem(menu, ID_RENDERER_OPENGL,   MF_BYCOMMAND | MF_GRAYED);
       EnableMenuItem(menu, ID_RENDERER_METAL,    MF_BYCOMMAND | MF_GRAYED);
@@ -279,8 +281,8 @@ INT_PTR SWELLAppMain(int msg, INT_PTR parm1, INT_PTR parm2)
       EnableMenuItem(menu, ID_RENDERER_OPENGL, MF_BYCOMMAND | MF_ENABLED);
 #endif
       
+#endif // GRAPHICS_SWITCHES
 #endif
-      
       HWND hwnd = CreateDialog(gHINST, MAKEINTRESOURCE(IDD_DIALOG_MAIN), NULL, IPlugAPPHost::MainDlgProc);
 
       if (menu)
