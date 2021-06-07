@@ -13,11 +13,13 @@ IPLUG_EXTRAS_PATH = $(IPLUG_PATH)/Extras
 IPLUG_SYNTH_PATH = $(IPLUG_EXTRAS_PATH)/Synth
 IPLUG_FAUST_PATH = $(IPLUG_EXTRAS_PATH)/Faust
 IPLUG_WEB_PATH = $(IPLUG_PATH)/WEB
+SKIA_PATH = $(DEPS_PATH)/Build/src/skia
 NANOVG_PATH = $(DEPS_PATH)/IGraphics/NanoVG/src
 NANOSVG_PATH = $(DEPS_PATH)/IGraphics/NanoSVG/src
 IMGUI_PATH = $(DEPS_PATH)/IGraphics/imgui
 YOGA_PATH = $(DEPS_PATH)/IGraphics/yoga
 STB_PATH = $(DEPS_PATH)/IGraphics/STB
+SKIA_LIBS_PATH = $(DEPS_PATH)/Build/web/lib
 
 IPLUG_SRC = $(IPLUG_PATH)/IPlugAPIBase.cpp \
 	$(IPLUG_PATH)/IPlugParameter.cpp \
@@ -31,6 +33,15 @@ IGRAPHICS_SRC = $(IGRAPHICS_PATH)/IGraphics.cpp \
 	$(PLATFORMS_PATH)/IGraphicsWeb.cpp
 
 IMGUI_SRC = $(IGRAPHICS_PATH)/IGraphicsImGui.cpp
+
+SKIA_INC_PATHS = -I$(SKIA_PATH) \
+-I$(SKIA_PATH)/include/core \
+-I$(SKIA_PATH)/include/effects \
+-I$(SKIA_PATH)/include/config \
+-I$(SKIA_PATH)/include/utils \
+-I$(SKIA_PATH)/include/gpu \
+-I$(SKIA_PATH)/third_party/externals/icu/source/common \
+-I$(SKIA_PATH)/modules/svg/include
 
 INCLUDE_PATHS = -I$(PROJECT_ROOT) \
 -I$(WAM_SDK_PATH) \
@@ -67,6 +78,14 @@ $(IPLUG_WEB_PATH)/IPlugWeb.cpp \
 $(IGRAPHICS_PATH)/IGraphicsEditorDelegate.cpp
 
 NANOVG_LDFLAGS = -s USE_WEBGL2=0 -s FULL_ES3=1
+
+SKIA_LDFLAGS = -L$(SKIA_LIBS_PATH) \
+-lskottie \
+-lskparagraph \
+-lskshaper \
+-lsksg \
+-lsvg \
+-lskia
 
 IMGUI_LDFLAGS = -s BINARYEN_TRAP_MODE=clamp 
 
