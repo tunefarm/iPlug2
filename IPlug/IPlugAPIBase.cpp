@@ -95,7 +95,7 @@ bool IPlugAPIBase::EditorResizeFromUI(int viewWidth, int viewHeight, bool needsP
     return true;
 }
 
-#pragma mark -
+//MARK -
 
 void IPlugAPIBase::SetHost(const char* host, int version)
 {

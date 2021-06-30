@@ -94,7 +94,7 @@ public:
   /** Called by app wrappers when the OS window scaling buttons/resizers are used */
   virtual void OnParentWindowResize(int width, int height) { /* NO-OP*/ }
   
-#pragma mark - Methods you may want to override...
+//MARK - Methods you may want to override...
   /** Override this method to do something before the UI is opened. You must call the base implementation to make sure controls linked to parameters get updated correctly. */
   virtual void OnUIOpen() { SendCurrentParamValuesFromDelegate(); }
   
@@ -160,7 +160,7 @@ public:
    * @return \c true if the key was handled by the plug-in */
   virtual bool OnKeyUp(const IKeyPress& key) { return false; }
   
-#pragma mark - Methods for sending values TO the user interface
+//MARK - Methods for sending values TO the user interface
   /** Loops through all parameters, calling SendParameterValueFromDelegate() with the current value of the parameter
    *  This is important when modifying groups of parameters, restoring state and opening the UI, in order to update it with the latest values*/
   void SendCurrentParamValuesFromDelegate()
@@ -224,7 +224,7 @@ public:
    * @param normalized \c true if value is normalised */
   virtual void SendParameterValueFromDelegate(int paramIdx, double value, bool normalized) { OnParamChangeUI(paramIdx, EParamSource::kDelegate); } // TODO: normalised?
 
-#pragma mark - Methods for sending values FROM the user interface
+//MARK - Methods for sending values FROM the user interface
   // The following methods are called from the user interface in order to set or query values of parameters in the class implementing IEditorDelegate
   
   /** When modifying a range of parameters in the editor, it can be necessary to broadcast that fact via the host, for instance in a distributed plug-in.
@@ -280,14 +280,14 @@ public:
   * @param pData Ptr to the opaque data payload for the message */
   virtual void SendArbitraryMsgFromUI(int msgTag, int ctrlTag = kNoTag, int dataSize = 0, const void* pData = nullptr) {};
   
-#pragma mark -
+//MARK -
   /** This method is needed, for remote editors to avoid a feedback loop */
   virtual void DeferMidiMsg(const IMidiMsg& msg) {};
   
   /** This method is needed, for remote editors to avoid a feedback loop */
   virtual void DeferSysexMsg(const ISysEx& msg) {};
 
-#pragma mark - Editor resizing
+//MARK - Editor resizing
   void SetEditorSize(int width, int height) { mEditorWidth = width; mEditorHeight = height; }
   
   /** \todo

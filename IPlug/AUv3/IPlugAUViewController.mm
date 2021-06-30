@@ -26,7 +26,7 @@
 @end
 
 #ifdef OS_IOS
-#pragma mark - iOS
+//MARK - iOS
 @implementation IPlugAUViewController
 #if PLUG_HAS_UI
 - (id) init
@@ -111,7 +111,7 @@
 @end
 
 #else // macOS
-#pragma mark - macOS
+//MARK - macOS
 @implementation IPlugAUViewController
 
 - (id) init

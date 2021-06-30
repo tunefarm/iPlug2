@@ -10,7 +10,7 @@ Utility classes to manage audio formats and buffers for an audio unit implementa
 #import <AVFoundation/AVFoundation.h>
 #include <algorithm>
 
-#pragma mark BufferedAudioBus Utility Class
+//MARK BufferedAudioBus Utility Class
 // Utility classes to manage audio formats and buffers for an audio unit implementation's input and output audio busses.
 
 // Reusable non-ObjC class, accessible from render thread.
@@ -50,8 +50,8 @@ struct BufferedAudioBus {
     }
 };
 
-#pragma mark - BufferedOutputBus: BufferedAudioBus
-#pragma mark prepareOutputBufferList()
+//MARK - BufferedOutputBus: BufferedAudioBus
+//MARK prepareOutputBufferList()
 /*
  BufferedOutputBus
  
@@ -74,9 +74,9 @@ struct BufferedOutputBus: BufferedAudioBus {
     }
 };
 
-#pragma mark - BufferedInputBus: BufferedAudioBus
-#pragma mark pullInput()
-#pragma mark prepareInputBufferList()
+//MARK - BufferedInputBus: BufferedAudioBus
+//MARK pullInput()
+//MARK prepareInputBufferList()
 /*
  BufferedInputBus
  

@@ -135,7 +135,7 @@ private:
   UInt32 GetTagForNumChannels(int numChannels);
   UInt32 GetChannelLayoutTags(AudioUnitScope scope, AudioUnitElement element, AudioChannelLayoutTag* pTags);
   
-#pragma mark - Component Manager Methods
+//MARK - Component Manager Methods
   OSStatus GetPropertyInfo(AudioUnitPropertyID propID, AudioUnitScope scope, AudioUnitElement element, UInt32* pDataSize, Boolean* pWriteable);
   OSStatus GetProperty(AudioUnitPropertyID propID, AudioUnitScope scope, AudioUnitElement element, UInt32* pDataSize, Boolean* pWriteable, void* pData);
   OSStatus SetProperty(AudioUnitPropertyID propID, AudioUnitScope scope, AudioUnitElement element, UInt32* pDataSize, const void* pData);
@@ -150,7 +150,7 @@ private:
   static OSStatus SetParamProc(void* pPlug, AudioUnitParameterID paramID, AudioUnitScope scope, AudioUnitElement element, AudioUnitParameterValue value, UInt32 offsetFrames);
   static OSStatus RenderProc(void* pPlug, AudioUnitRenderActionFlags* pFlags, const AudioTimeStamp* pTimestamp, UInt32 outputBusIdx, UInt32 nFrames, AudioBufferList* pBufferList);
   
-#pragma mark - Dispatch Methods
+//MARK - Dispatch Methods
   static OSStatus AUMethodInitialize(void* pSelf);
   static OSStatus AUMethodUninitialize(void* pSelf);
   static OSStatus AUMethodGetPropertyInfo(void* pSelf, AudioUnitPropertyID prop, AudioUnitScope scope, AudioUnitElement elem, UInt32* pOutDataSize, Boolean* pOutWritable);
@@ -169,7 +169,7 @@ private:
   static OSStatus AUMethodMIDIEvent(void* pSelf, UInt32 inStatus, UInt32 inData1, UInt32 inData2, UInt32 inOffsetSampleFrame);
   static OSStatus AUMethodSysEx(void* pSelf, const UInt8* pInData, UInt32 inLength);
   
-#pragma mark - Implementation Methods
+//MARK - Implementation Methods
   static OSStatus DoInitialize(IPlugAU* pPlug);
   static OSStatus DoUninitialize(IPlugAU* pPlug);
   static OSStatus DoGetPropertyInfo(IPlugAU* pPlug, AudioUnitPropertyID prop, AudioUnitScope scope, AudioUnitElement elem, UInt32 *pOutDataSize, Boolean* pOutWritable);
@@ -190,7 +190,7 @@ private:
     
 protected:
   
-#pragma mark - Utilities
+//MARK - Utilities
 
   static void PutNumberInDict(CFMutableDictionaryRef pDict, const char* key, void* pNumber, CFNumberType type);
   static void PutStrInDict(CFMutableDictionaryRef pDict, const char* key, const char* value);
@@ -201,7 +201,7 @@ protected:
 
 private:
 
-#pragma mark -
+//MARK -
 
   bool mActive = false; // TODO: is this necessary? is it correct?
   double mLastRenderSampleTime = -1.0;

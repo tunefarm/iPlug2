@@ -10,7 +10,7 @@
 
 #include "IPlugVST3_Processor.h"
 
-#pragma mark - IPlugVST3Processor Constructor/Destructor
+//MARK - IPlugVST3Processor Constructor/Destructor
 
 using namespace iplug;
 using namespace Steinberg;
@@ -26,7 +26,7 @@ IPlugVST3Processor::IPlugVST3Processor(const InstanceInfo& info, const Config& c
 
 IPlugVST3Processor::~IPlugVST3Processor() {}
 
-#pragma mark AudioEffect overrides
+//MARK AudioEffect overrides
 
 tresult PLUGIN_API IPlugVST3Processor::initialize(FUnknown* context)
 {
@@ -106,7 +106,7 @@ tresult PLUGIN_API IPlugVST3Processor::getState(IBStream* pState)
   return IPlugVST3State::GetState(this, pState) ? kResultOk :kResultFalse;
 }
 
-#pragma mark IEditorDelegate overrides
+//MARK IEditorDelegate overrides
 
 void IPlugVST3Processor::SendControlValueFromDelegate(int ctrlTag, double normalizedValue)
 {
@@ -157,7 +157,7 @@ void IPlugVST3Processor::SendArbitraryMsgFromDelegate(int msgTag, int dataSize, 
   sendMessage(message);
 }
 
-#pragma mark IConnectionPoint override
+//MARK IConnectionPoint override
 
 tresult PLUGIN_API IPlugVST3Processor::notify(IMessage* message)
 {
@@ -204,7 +204,7 @@ tresult PLUGIN_API IPlugVST3Processor::notify(IMessage* message)
   return AudioEffect::notify(message);
 }
 
-#pragma mark Messaging overrides
+//MARK Messaging overrides
 
 void IPlugVST3Processor::TransmitMidiMsgFromProcessor(const IMidiMsg& msg)
 {

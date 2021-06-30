@@ -43,8 +43,8 @@
 
 #include <AudioToolbox/AudioUnitUtilities.h>	// for AUEventListenerNotify and AUParameterListenerNotify
 
-#pragma mark -
-#pragma mark Factory Presets CFArray
+//MARK -
+//MARK Factory Presets CFArray
 
 //-----------------------------------------------------------------------------
 // The following defines and implements CoreFoundation-like handling of 

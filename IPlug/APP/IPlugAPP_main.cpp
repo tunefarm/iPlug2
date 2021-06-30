@@ -19,7 +19,7 @@
 
 using namespace iplug;
 
-#pragma mark - WINDOWS
+//MARK - WINDOWS
 #if defined OS_WIN
 #include <windows.h>
 #include <commctrl.h>
@@ -140,7 +140,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdPa
   }
   return 0;
 }
-#pragma mark - MAC
+//MARK - MAC
 #elif defined(OS_MAC)
 #import <Cocoa/Cocoa.h>
 #include "IPlugSWELL.h"
@@ -301,7 +301,7 @@ INT_PTR SWELLAppMain(int msg, INT_PTR parm1, INT_PTR parm2)
 #include "swell-menugen.h"
 #include "resources/main.rc_mac_menu"
 
-#pragma mark - LINUX
+//MARK - LINUX
 #elif defined(OS_LINUX)
 //#include <IPlugSWELL.h>
 //#include "swell-internal.h" // fixes problem with HWND forward decl

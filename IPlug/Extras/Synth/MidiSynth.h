@@ -41,7 +41,7 @@ public:
   static constexpr int kDefaultBlockSize = 32;
   static constexpr int kDefaultPitchBendRange = 12;
 
-#pragma mark - MidiSynth class
+//MARK - MidiSynth class
 
   MidiSynth(VoiceAllocator::EPolyMode mode, int blockSize = kDefaultBlockSize);
   ~MidiSynth();

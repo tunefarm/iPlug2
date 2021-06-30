@@ -428,7 +428,7 @@ void FaustGen::Factory::SetCompileOptions(std::initializer_list<const char*> opt
 
 }
 
-#pragma mark -
+//MARK -
 
 FaustGen::FaustGen(const char* name, const char* inputDSPFile, int nVoices, int rate,
                    const char* outputCPPFile, const char* drawPath, const char* libraryPath)

@@ -49,7 +49,7 @@ public:
   IPlugAPIBase(const IPlugAPIBase&) = delete;
   IPlugAPIBase& operator=(const IPlugAPIBase&) = delete;
   
-#pragma mark - Methods you can implement/override in your plug-in class - you do not call these methods
+//MARK - Methods you can implement/override in your plug-in class - you do not call these methods
 
   /** Override this method to implement a custom comparison of incoming state data with your plug-ins state data, in order
    * to support the ProTools compare light when using custom state chunks. The default implementation will compare the serialized parameters.
@@ -106,7 +106,7 @@ public:
   /** Override this method to get an "idle"" call on the main thread */
   virtual void OnIdle() {}
     
-#pragma mark - Methods you can call - some of which have custom implementations in the API classes, some implemented in IPlugAPIBase.cpp
+//MARK - Methods you can call - some of which have custom implementations in the API classes, some implemented in IPlugAPIBase.cpp
   /** SetParameterValue is called from the UI in the middle of a parameter change gesture (possibly via delegate) in order to update a parameter's value.
    * It will update mParams[paramIdx], call InformHostOfParamChange and IPlugAPIBase::OnParamChange();
    * @param paramIdx The index of the parameter that changed
@@ -132,7 +132,7 @@ public:
    * you can call this to update the parameters on the DSP side */
   virtual void DirtyParametersFromUI() override;
 
-#pragma mark - Methods called by the API class - you do not call these methods in your plug-in class
+//MARK - Methods called by the API class - you do not call these methods in your plug-in class
 
   /** This is called from the plug-in API class in order to update UI controls linked to plug-in parameters, prior to calling OnParamChange()
    * NOTE: It may be called on the high priority audio thread. Its purpose is to place parameter changes in a queue to defer to main thread for the UI

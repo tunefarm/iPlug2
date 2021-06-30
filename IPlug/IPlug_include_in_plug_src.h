@@ -18,7 +18,7 @@
  * Depending on the API macro defined, a different entry point and helper methods are activated
 */
 
-#pragma mark - OS_WIN
+//MARK - OS_WIN
 
 #if defined OS_WIN && !defined VST3C_API
   HINSTANCE gHINSTANCE = 0;
@@ -63,9 +63,9 @@
 
 #endif
 
-#pragma mark - ** Global Functions and Defines **
+//MARK - ** Global Functions and Defines **
 
-#pragma mark - VST2
+//MARK - VST2
 #if defined VST2_API
   extern "C"
   {
@@ -94,7 +94,7 @@
     #endif
     }
   };
-#pragma mark - VST3 (All)
+//MARK - VST3 (All)
 #elif defined VST3_API || VST3C_API || defined VST3P_API
   #include "public.sdk/source/main/pluginfactory.h"
   #include "pluginterfaces/vst/ivstcomponent.h"
@@ -129,7 +129,7 @@
     return true;
   }
   #endif
-  #pragma mark - VST3
+  //MARK - VST3
   #if defined VST3_API
   static Steinberg::FUnknown* createInstance(void*)
   {
@@ -149,7 +149,7 @@
               createInstance)                                 // function pointer called to be instantiate
 
   END_FACTORY
-  #pragma mark - VST3 Processor
+  //MARK - VST3 Processor
   #elif defined VST3P_API
   static Steinberg::FUnknown* createProcessorInstance(void*)
   {
@@ -185,7 +185,7 @@
 
   END_FACTORY
   #endif
-#pragma mark - AUv2
+//MARK - AUv2
 #elif defined AU_API
   extern "C"
   {
@@ -203,7 +203,7 @@
       return IPlugAUFactory<PLUG_CLASS_NAME, PLUG_DOES_MIDI_IN>::Factory(pInDesc);
     }
   };
-#pragma mark - WAM
+//MARK - WAM
 #elif defined WAM_API
   extern "C"
   {
@@ -213,7 +213,7 @@
       return (void*) pWAM;
     }
   }
-#pragma mark - WEB
+//MARK - WEB
 #elif defined WEB_API
 #include <memory>
 #include "config.h"
@@ -275,12 +275,12 @@
   #error "No API defined!"
 #endif
 
-#pragma mark - ** Instantiation **
+//MARK - ** Instantiation **
 
 BEGIN_IPLUG_NAMESPACE
 
-#pragma mark -
-#pragma mark VST2, VST3, AAX, AUv3, APP, WAM, WEB
+//MARK -
+//MARK VST2, VST3, AAX, AUv3, APP, WAM, WEB
 
 #if defined VST2_API || defined VST3_API || defined AAX_API || defined AUv3_API || defined APP_API  || defined WAM_API || defined WEB_API
 
@@ -293,7 +293,7 @@ Plugin* MakePlug(const InstanceInfo& info)
   return new PLUG_CLASS_NAME(info);
 }
 
-#pragma mark - AUv2
+//MARK - AUv2
 #elif defined AU_API
 
 Plugin* MakePlug(void* pMemory)
@@ -307,7 +307,7 @@ Plugin* MakePlug(void* pMemory)
     return new PLUG_CLASS_NAME(info);
 }
 
-#pragma mark - VST3 Controller
+//MARK - VST3 Controller
 #elif defined VST3C_API
 
 Steinberg::FUnknown* MakeController()
@@ -321,7 +321,7 @@ Steinberg::FUnknown* MakeController()
   return static_cast<Steinberg::Vst::IEditController*>(new PLUG_CLASS_NAME(info));
 }
 
-#pragma mark - VST3 Processor
+//MARK - VST3 Processor
 #elif defined VST3P_API
 
 Steinberg::FUnknown* MakeProcessor()
@@ -337,7 +337,7 @@ Steinberg::FUnknown* MakeProcessor()
 #error "No API defined!"
 #endif
 
-#pragma mark - ** Config Utility **
+//MARK - ** Config Utility **
 
 static Config MakeConfig(int nParams, int nPresets)
 {

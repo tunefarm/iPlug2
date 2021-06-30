@@ -49,7 +49,7 @@ public:
   IPlugProcessor(const IPlugProcessor&) = delete;
   IPlugProcessor& operator=(const IPlugProcessor&) = delete;
   
-#pragma mark - Methods you implement in your plug-in class - you do not call these methods
+//MARK - Methods you implement in your plug-in class - you do not call these methods
 
   /** Override in your plug-in class to process audio
    * In ProcessBlock you are always guaranteed to get valid pointers to all the channels the plugin requested
@@ -80,7 +80,7 @@ public:
    * @param active \c true if the host has activated the plug-in */
   virtual void OnActivate(bool active) { TRACE }
 
-#pragma mark - Methods you can call - some of which have custom implementations in the API classes, some implemented in IPlugProcessor.cpp
+//MARK - Methods you can call - some of which have custom implementations in the API classes, some implemented in IPlugProcessor.cpp
 
   /** Send a single MIDI message // TODO: info about what thread should this be called on or not called on!
    * @param msg The IMidiMsg to send
@@ -115,7 +115,7 @@ public:
   /** @return \c true if the plugin is currently rendering off-line */
   bool GetRenderingOffline() const { return mRenderingOffline; };
 
-#pragma mark -
+//MARK -
   /** @return The number of samples elapsed since start of project timeline. */
   double GetSamplePos() const { return mTimeInfo.mSamplePos; }
 
@@ -135,7 +135,7 @@ public:
    *  @param denominator The lower part of the current time signature e.g "8" in the time signature 6/8 */
   void GetTimeSig(int& numerator, int& denominator) const { numerator = mTimeInfo.mNumerator; denominator = mTimeInfo.mDenominator; }
 
-#pragma mark -
+//MARK -
   
   /** Get the name for a particular bus
    * @param direction Input or output bus
@@ -254,7 +254,7 @@ public:
   static int ParseChannelIOStr(const char* IOStr, WDL_PtrList<IOConfig>& channelIOList, int& totalNInChans, int& totalNOutChans, int& totalNInBuses, int& totalNOutBuses);
 
 protected:
-#pragma mark - Methods called by the API class - you do not call these methods in your plug-in class
+//MARK - Methods called by the API class - you do not call these methods in your plug-in class
   void SetChannelConnections(ERoute direction, int idx, int n, bool connected);
 
   //The following methods are duplicated, in order to deal with either single or double precision processing,

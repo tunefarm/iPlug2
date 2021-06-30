@@ -238,7 +238,7 @@ bool AppIsSandboxed()
 }
 
 #elif defined OS_IOS
-#pragma mark - IOS
+//MARK - IOS
 
 void HostPath(WDL_String& path, const char* bundleID)
 {

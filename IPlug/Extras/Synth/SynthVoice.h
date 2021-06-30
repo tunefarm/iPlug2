@@ -49,7 +49,7 @@ using namespace voiceControlNames;
 
 using VoiceInputs = ControlRamp::RampArray<kNumVoiceControlRamps>;
 
-#pragma mark - Voice class
+//MARK - Voice class
 
 class SynthVoice
 {

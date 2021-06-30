@@ -36,7 +36,7 @@ std::vector<ReaperAction> gActions;
 // super nasty looking macro here but allows importing functions from Reaper with simple looking code
 #define IMPAPI(x) if (!((*((void **)&(x)) = (void *)pRec->GetFunc(#x)))) gErrorCount++;
 
-#pragma mark - ENTRY POINT
+//MARK - ENTRY POINT
 extern "C"
 {
   REAPER_PLUGIN_DLL_EXPORT int REAPER_PLUGIN_ENTRYPOINT(REAPER_PLUGIN_HINSTANCE hInstance, reaper_plugin_info_t* pRec)

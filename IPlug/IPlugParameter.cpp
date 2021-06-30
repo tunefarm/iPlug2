@@ -21,7 +21,7 @@
 
 using namespace iplug;
 
-#pragma mark - Shape
+//MARK - Shape
 
 double IParam::ShapeLinear::NormalizedToValue(double value, const IParam& param) const
 {
@@ -79,7 +79,7 @@ double IParam::ShapeExp::ValueToNormalized(double value, const IParam& param) co
   return (std::log(value) - mAdd) / mMul;
 }
 
-#pragma mark -
+//MARK -
 
 IParam::IParam()
 {

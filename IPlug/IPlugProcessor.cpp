@@ -114,7 +114,7 @@ double IPlugProcessor::GetSamplesPerBeat() const
   return 0.0;
 }
 
-#pragma mark -
+//MARK -
 
 void IPlugProcessor::GetBusName(ERoute direction, int busIdx, int nBuses, WDL_String& str) const
 {
@@ -421,7 +421,7 @@ int IPlugProcessor::GetAUPluginType() const
     return 'aufx';
 }
 
-#pragma mark -
+//MARK -
 
 void IPlugProcessor::SetChannelConnections(ERoute direction, int idx, int n, bool connected)
 {

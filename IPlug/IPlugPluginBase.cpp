@@ -99,7 +99,7 @@ void IPluginBase::GetBuildInfoStr(WDL_String& str, const char* date, const char*
   str.SetFormatted(MAX_BUILD_INFO_STR_LEN, "%s %s (%s), built on %s at %.5s ", version.Get(), GetAPIStr(), GetArchStr(), date, time);
 }
 
-#pragma mark -
+//MARK -
 
 bool IPluginBase::SerializeParams(IByteChunk& chunk) const
 {

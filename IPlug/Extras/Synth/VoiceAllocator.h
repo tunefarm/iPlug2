@@ -76,7 +76,7 @@ struct VoiceInputEvent
   int mSampleOffset;
 };
 
-#pragma mark - VoiceAllocator class
+//MARK - VoiceAllocator class
 
 class VoiceAllocator final
 {

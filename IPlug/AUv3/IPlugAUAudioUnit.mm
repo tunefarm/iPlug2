@@ -125,7 +125,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
   
   mPlug->SetAUAudioUnit((__bridge void*) self);
   
-#pragma mark Audio I/O
+//MARK Audio I/O
   
   NSMutableArray* pChannelCapabilities = [[NSMutableArray alloc] init];
   [self populateChannelCapabilitesArray: pChannelCapabilities];
@@ -213,7 +213,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
     _mOutputBusArray  = [[AUAudioUnitBusArray alloc] initWithAudioUnit:self busType:AUAudioUnitBusTypeOutput busses: pOutputBusses];
   }
   
-#pragma mark MIDI
+//MARK MIDI
   
   NSMutableArray* midiOutputNames = [[NSMutableArray<NSString*> alloc] init];
   
@@ -222,7 +222,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
   
   mMidiOutputNames = midiOutputNames;
 
-#pragma mark parameters
+//MARK parameters
   
   NSMutableArray* treeArray = [[NSMutableArray<AUParameter*> alloc] init];
   
@@ -390,7 +390,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
   
   mParameterTree = [AUParameterTree createTreeWithChildren:rootNodeArray];
   
-  #pragma mark presets
+  //MARK presets
   // Create factory preset array.
   NSMutableArray* pPresets = [[NSMutableArray alloc] init];
   
@@ -412,7 +412,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
   
   __block IPlugAUv3* pPlug = mPlug;
 
-#pragma mark blocks
+//MARK blocks
   
   // start timer on main thread
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -473,7 +473,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
 //  });
 }
 
-#pragma mark - AUAudioUnit (Overrides)
+//MARK - AUAudioUnit (Overrides)
 
 - (AUAudioUnitBusArray *) inputBusses
 {
@@ -564,7 +564,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
   [super deallocateRenderResources];
 }
 
-#pragma mark - AUAudioUnit (AUAudioUnitImplementation)
+//MARK - AUAudioUnit (AUAudioUnitImplementation)
 
 - (AUInternalRenderBlock) internalRenderBlock
 {
@@ -652,7 +652,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
   };
 }
 
-#pragma mark- AUAudioUnit (Optional Properties)
+//MARK- AUAudioUnit (Optional Properties)
 
 - (AUAudioUnitPreset *)currentPreset
 {
@@ -809,7 +809,7 @@ static AUAudioUnitPreset* NewAUPreset(NSInteger number, NSString* pName)
   mPlug->OnHostSelectedViewConfiguration((int) [viewConfiguration width], (int) [viewConfiguration height]);
 }
 
-#pragma mark - IPlugAUAudioUnit
+//MARK - IPlugAUAudioUnit
 
 - (void) beginInformHostOfParamChange: (uint64_t) address;
 {

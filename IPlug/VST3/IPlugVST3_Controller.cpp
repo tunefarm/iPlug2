@@ -35,7 +35,7 @@ IPlugVST3Controller::~IPlugVST3Controller()
 {
 }
 
-#pragma mark IEditController overrides
+//MARK IEditController overrides
 
 tresult PLUGIN_API IPlugVST3Controller::initialize(FUnknown* context)
 {
@@ -109,7 +109,7 @@ tresult PLUGIN_API IPlugVST3Controller::getMidiControllerAssignment(int32 busInd
   return kResultFalse;
 }
 
-#pragma mark IUnitInfo overrides
+//MARK IUnitInfo overrides
 
 //void IPlugVST3Controller::InformHostOfPresetChange()
 //{
@@ -123,14 +123,14 @@ tresult PLUGIN_API IPlugVST3Controller::getMidiControllerAssignment(int32 busInd
 //  }
 //}
 
-#pragma mark IInfoListener overrides
+//MARK IInfoListener overrides
 
 Steinberg::tresult PLUGIN_API IPlugVST3Controller::setChannelContextInfos(Steinberg::Vst::IAttributeList* pList)
 {
   return IPlugVST3ControllerBase::SetChannelContextInfos(pList) ? kResultTrue : kResultFalse;
 }
 
-#pragma mark -
+//MARK -
 
 bool IPlugVST3Controller::EditorResize(int viewWidth, int viewHeight)
 {
@@ -155,7 +155,7 @@ void IPlugVST3Controller::DirtyParametersFromUI()
   finishGroupEdit();
 }
 
-#pragma mark Message with Processor
+//MARK Message with Processor
 
 tresult PLUGIN_API IPlugVST3Controller::notify(IMessage* message)
 {

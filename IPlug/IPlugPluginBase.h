@@ -32,7 +32,7 @@ public:
   IPluginBase(const IPluginBase&) = delete;
   IPluginBase& operator=(const IPluginBase&) = delete;
 
-#pragma mark - Plug-in properties
+//MARK - Plug-in properties
   /** @return the name of the plug-in as a CString */
   const char* GetPluginName() const { return mPluginName.Get(); }
   
@@ -100,7 +100,7 @@ public:
   /*** @return a CString with the bundle identifier (macOS/IOS only) */
   const char* GetBundleID() const { return mBundleID.Get(); }
     
-#pragma mark - Parameters
+//MARK - Parameters
   
   /** @return The number of unique parameter groups identified */
   int NParamGroups() const { return mParamGroups.GetSize(); }
@@ -118,7 +118,7 @@ public:
   /** Implemented by the API class, call this if you update parameter labels and hopefully the host should update it's displays (not applicable to all APIs) */
   virtual void InformHostOfParameterDetailsChange() {};
     
-#pragma mark - State Serialization
+//MARK - State Serialization
   /** @return \c true if the plug-in has been set up to do state chunks, via config.h */
   bool DoesStateChunks() const { return mStateChunks; }
   
@@ -166,7 +166,7 @@ public:
   /** Implemented by the API class, called by the UI (etc) when the plug-in initiates a program/preset change (not applicable to all APIs) */
   virtual void InformHostOfPresetChange() {};
 
-#pragma mark - Preset Manipulation
+//MARK - Preset Manipulation
   
   /** Get a ptr to a factory preset
    * @ param idx The index number of the preset you are referring to */
@@ -300,7 +300,7 @@ public:
   bool LoadBankFromFXB(const char* file);
 
   
-#pragma mark - Parameter manipulation
+//MARK - Parameter manipulation
     
   /** Initialise a range of parameters simultaneously. This mirrors the arguments available in IParam::InitDouble, for maximum flexibility
    * @param startIdx The index of the first parameter to initialise

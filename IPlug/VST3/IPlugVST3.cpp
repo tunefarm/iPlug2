@@ -24,7 +24,7 @@ using namespace Vst;
 
 #include "IPlugVST3_Parameter.h"
 
-#pragma mark - IPlugVST3 Constructor/Destructor
+//MARK - IPlugVST3 Constructor/Destructor
 
 IPlugVST3::IPlugVST3(const InstanceInfo& info, const Config& config)
 : IPlugAPIBase(config, kAPIVST3)
@@ -37,7 +37,7 @@ IPlugVST3::IPlugVST3(const InstanceInfo& info, const Config& config)
 
 IPlugVST3::~IPlugVST3() {}
 
-#pragma mark AudioEffect overrides
+//MARK AudioEffect overrides
 
 tresult PLUGIN_API IPlugVST3::initialize(FUnknown* context)
 {
@@ -121,7 +121,7 @@ tresult PLUGIN_API IPlugVST3::getState(IBStream* pState)
   return IPlugVST3State::GetState(this, pState) ? kResultOk :kResultFalse;
 }
 
-#pragma mark IEditController overrides
+//MARK IEditController overrides
 ParamValue PLUGIN_API IPlugVST3::getParamNormalized(ParamID tag)
 {
   return IPlugVST3ControllerBase::GetParamNormalized(tag);
@@ -164,7 +164,7 @@ tresult PLUGIN_API IPlugVST3::setComponentState(IBStream* pState)
   return kResultOk;
 }
 
-#pragma mark IMidiMapping overrides
+//MARK IMidiMapping overrides
 
 tresult PLUGIN_API IPlugVST3::getMidiControllerAssignment(int32 busIndex, int16 midiChannel, CtrlNumber midiCCNumber, ParamID& tag)
 {
@@ -177,14 +177,14 @@ tresult PLUGIN_API IPlugVST3::getMidiControllerAssignment(int32 busIndex, int16 
   return kResultFalse;
 }
 
-#pragma mark IInfoListener overrides
+//MARK IInfoListener overrides
 
 Steinberg::tresult PLUGIN_API IPlugVST3::setChannelContextInfos(Steinberg::Vst::IAttributeList* pList)
 {
   return IPlugVST3ControllerBase::SetChannelContextInfos(pList) ? kResultTrue : kResultFalse;
 }
 
-#pragma mark IPlugAPIBase overrides
+//MARK IPlugAPIBase overrides
 
 void IPlugVST3::BeginInformHostOfParamChange(int idx)
 {
@@ -223,7 +223,7 @@ bool IPlugVST3::EditorResize(int viewWidth, int viewHeight)
   return true;
 }
 
-#pragma mark IEditorDelegate overrides
+//MARK IEditorDelegate overrides
 
 void IPlugVST3::DirtyParametersFromUI()
 {

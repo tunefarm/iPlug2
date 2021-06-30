@@ -60,7 +60,7 @@ public:
   /** DisplayFunc allows custom parameter display functions, defined by a lambda matching this signature */
   using DisplayFunc = std::function<void(double, WDL_String&)>;
 
-#pragma mark - Shape
+//MARK - Shape
 
   /** Base struct for parameter shaping */
   struct Shape
@@ -126,7 +126,7 @@ public:
     double mAdd = 1.0;
   };
 
-#pragma mark -
+//MARK -
 
   IParam();
 

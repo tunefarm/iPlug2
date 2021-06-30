@@ -19,7 +19,7 @@
 
 using namespace iplug;
 
-#pragma mark - CFString and CString Utilities
+//MARK - CFString and CString Utilities
 
 static inline CFStringRef MakeCFString(const char* cStr)
 {
@@ -60,7 +60,7 @@ struct IPlugAU::CStrLocal : WDL_TypedBuf<char>
   }
 };
 
-#pragma mark - Utilities
+//MARK - Utilities
 
 inline void IPlugAU::PutNumberInDict(CFMutableDictionaryRef pDict, const char* key, void* pNumber, CFNumberType type)
 {
@@ -180,7 +180,7 @@ static int PtrListInitialize(WDL_PtrList<C>* pList, int size)
 #define NO_OP(select) case select: return badComponentSelector;
 
 #ifndef AU_NO_COMPONENT_ENTRY
-#pragma mark - COMPONENT MANAGER ENTRY POINT
+//MARK - COMPONENT MANAGER ENTRY POINT
 // static
 OSStatus IPlugAU::IPlugAUEntry(ComponentParameters *params, void* pPlug)
 {
@@ -390,7 +390,7 @@ OSStatus IPlugAU::IPlugAUEntry(ComponentParameters *params, void* pPlug)
 }
 #endif //AU_NO_COMPONENT_ENTRY
 
-#pragma mark - GetChannelLayoutTags
+//MARK - GetChannelLayoutTags
 
 UInt32 IPlugAU::GetChannelLayoutTags(AudioUnitScope scope, AudioUnitElement element, AudioChannelLayoutTag* tags)
 {
@@ -924,7 +924,7 @@ OSStatus IPlugAU::GetProperty(AudioUnitPropertyID propID, AudioUnitScope scope, 
       }
       return kAudioUnitErr_InvalidProperty;
     }
-#pragma mark - kAudioUnitProperty_SupportedChannelLayoutTags
+//MARK - kAudioUnitProperty_SupportedChannelLayoutTags
     case kAudioUnitProperty_SupportedChannelLayoutTags:
     {
       if (!pData) // GetPropertyInfo
@@ -1808,7 +1808,7 @@ void IPlugAU::ClearConnections()
   }
 }
 
-#pragma mark - IPlugAU Constructor
+//MARK - IPlugAU Constructor
 
 IPlugAU::IPlugAU(const InstanceInfo& info, const Config& config)
 : IPlugAPIBase(config, kAPIAU)
@@ -2122,7 +2122,7 @@ void IPlugAU::OutputSysexFromEditor()
   }
 }
 
-#pragma mark - IPlugAU Dispatch
+//MARK - IPlugAU Dispatch
 
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= 1070
 

@@ -91,7 +91,7 @@ AAX_Result AAX_CEffectGUI_IPLUG::SetControlHighlightInfo(AAX_CParamID paramID, A
   return AAX_ERROR_INVALID_PARAMETER_ID;
 }
 
-#pragma mark IPlugAAX Construct
+//MARK IPlugAAX Construct
 
 IPlugAAX::IPlugAAX(const InstanceInfo& info, const Config& config)
 : IPlugAPIBase(config, kAPIAAX)
