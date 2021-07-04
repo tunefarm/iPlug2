@@ -46,10 +46,11 @@ IPlugAPIBase::IPlugAPIBase(Config c, EAPI plugAPI)
 
 IPlugAPIBase::~IPlugAPIBase()
 {
-  if(mTimer)
+  //Not needed, timer destructor calls stop
+  /*if (mTimer)
   {
     mTimer->Stop();
-  }
+  }*/
 
   TRACE
 }

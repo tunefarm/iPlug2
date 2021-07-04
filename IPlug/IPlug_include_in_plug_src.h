@@ -20,7 +20,7 @@
 
 //MARK - OS_WIN
 
-#if defined OS_WIN && !defined VST3C_API
+#if defined PLUG_IMPL && defined OS_WIN && !defined VST3C_API
   HINSTANCE gHINSTANCE = 0;
   #if defined(VST2_API) || defined(AAX_API)
   #ifdef __MINGW32__
@@ -113,7 +113,7 @@
     #endif
   #endif
 
-  #if defined VST3P_API || defined VST3_API
+  #if defined PLUG_IMPL && (defined VST3P_API || defined VST3_API)
   bool InitModule()
   {
     #ifdef OS_WIN
@@ -130,7 +130,7 @@
   }
   #endif
   //MARK - VST3
-  #if defined VST3_API
+  #if defined PLUG_IMPL && defined VST3_API
   static Steinberg::FUnknown* createInstance(void*)
   {
     return (Steinberg::Vst::IAudioProcessor*) MakePlug(InstanceInfo());
@@ -284,6 +284,7 @@ BEGIN_IPLUG_NAMESPACE
 
 #if defined VST2_API || defined VST3_API || defined AAX_API || defined AUv3_API || defined APP_API  || defined WAM_API || defined WEB_API
 
+#if defined PLUG_IMPL
 Plugin* MakePlug(const InstanceInfo& info)
 {
   // From VST3 - is this necessary?
@@ -292,6 +293,7 @@ Plugin* MakePlug(const InstanceInfo& info)
   
   return new PLUG_CLASS_NAME(info);
 }
+#endif
 
 //MARK - AUv2
 #elif defined AU_API

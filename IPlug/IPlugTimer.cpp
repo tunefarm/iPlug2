@@ -95,7 +95,8 @@ void Timer_impl::Stop()
   if (ID)
   {
     KillTimer(0, ID);
-    WDL_MutexLock lock(&sMutex);
+    //TODO: this is causing problems
+    //WDL_MutexLock lock(&sMutex);
     sTimers.DeletePtr(this);
     ID = 0;
   }

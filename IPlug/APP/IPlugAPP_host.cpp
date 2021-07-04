@@ -447,9 +447,11 @@ bool IPlugAPPHost::TryToChangeAudio()
     UpdateINI();
   }
 
+  /*
   if (failedToFindDevice)
     MessageBox(gHWND, "Please check your soundcard settings in Preferences", "Error", MB_OK);
-
+  */
+ 
   if (inputID != -1 && outputID != -1)
   {
     return InitAudio(inputID, outputID, mState.mAudioSR, mState.mBufferSize);
